@@ -143,4 +143,3 @@ print("Te demoras aproximadamente",int(tiempo_por_pregunta),"segundos en cada re
 print("......")
 print("Para jugar de nuevo, presiona flecha ascendente ⬆︎ y")
 print("...luego presiona ENTER ↲")
-

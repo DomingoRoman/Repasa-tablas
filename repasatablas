@@ -1,0 +1,146 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#  repasatablas.py
+#  
+#  Copyright 2017 mapa <mapa@jules>
+#  
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#  
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#  
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#  MA 02110-1301, USA.
+#  
+#  Este programa permite repasar las tablas de multiplicar 
+#  entre el 2 y el 9.
+#  
+import pdb 
+from subprocess import call
+import random
+import time
+
+# Limpiar la pantalla 
+call("clear")
+
+ene_veces = random.randint(3, 5)
+
+nombre = (input("Escriba su nombre  "))
+nombre = nombre.lower()
+espera = (input("Presiona enter"))
+
+# Limpiar la pantalla 
+call("clear")
+
+print(nombre,", aparecerán unas preguntas.")
+print("...")
+print("Tus respuestas correctas sumarán 1 punto.")
+print("...")
+print("Tus respuestas equivocadas restarán 1 punto.")
+print("...")
+print("Por lo tanto, puedes sacar puntaje negativo!")
+print("en caso de que tengas más malas que buenas")
+print("...")
+espera = (input("Presiona enter"))
+call("clear")
+
+if nombre == "pedro" or nombre == "pedro domingo":
+    nombre = nombre.title()
+    print("...")
+    print("Mmmmm... Supongo que juegas en Palestino")
+    print("...")
+    print("Probablemente eres tú el famoso crac de Palestino Ñuñoa!")
+    espera = (input("Entre enter"))
+    call("clear")
+if nombre == "luis":
+    nombre = nombre.title()
+    print(nombre,"el colocolino?")
+if nombre == "nerea":
+    nombre = nombre.title()	
+    print("Hermoso tu nombre,",nombre)
+if nombre == "agustín" or nombre == "agus" or nombre == "agustin":
+    nombre = nombre.title()
+    print(nombre,"¿Eres el genio de las matemáticas?")
+else:
+    nombre = nombre.title()
+    
+print(nombre,"tendrás que responder",ene_veces, "preguntas.")
+
+espera = (input("Entre enter"))
+call("clear")
+
+# inicia contador de números para respuesta, respuestas acertadas
+# y respuestas equivocadas
+
+puntos = 0
+puntos_posit = 0
+puntos_negat = 0
+
+# comienza el contador de tiempo del proceso
+inicio = time.time()
+
+for i in range(ene_veces):
+    ene = random.randint(2, 9)
+    ene3 = random.randint(2, 9)
+    resp = ene*ene3
+
+    print("Dime,",nombre,", ¿cuánto es ", ene, "*", ene3,"?")
+
+    respuesta = int(input())
+
+    if respuesta == resp:
+        print("Correcta tu respuesta,",nombre)
+        print(":)")
+        puntos = puntos + 1
+        puntos_posit = puntos_posit + 1
+    else:
+        print(":(  Error!!!!", nombre," la respuesta es: ", resp)
+        puntos = puntos - 1
+        puntos_negat = puntos_negat + 1
+
+    espera = (input("Entre enter"))
+    call("clear")
+
+# finaliza el contador de tiempo
+final = time.time()
+
+# cuenta el tiempo del proceso total
+tiempo_total = final-inicio
+
+# calcula el tiempo que en promedio demora en cada respuesta
+tiempo_por_pregunta = tiempo_total/ene_veces
+
+# Calcula el porcentaje de puntos positivos (restados los errores)
+porc = puntos*100/ene_veces
+porc_pos = puntos_posit*100/ene_veces
+porc_neg = puntos_negat*100/ene_veces
+
+print("Tus puntaje es de",puntos,"de un máximo posible de",ene_veces)
+
+if puntos/ene_veces == 1:
+   print("Felicitaciones,",nombre,", acertaste en todas!!!")
+   print("...")
+   print("Eres pro")
+elif puntos/ene_veces >= -1:
+    print("...")
+    print("Estás bastante mal,",nombre,"Muuy maaaal!")
+else:
+    print("...")
+    print("Tu porcentaje de acierto es solo del",porc,"por ciento")
+
+print("Cuentas con",puntos_posit,"aciertos y",puntos_negat,"equivocaciones.")
+print("......")
+print("Porcentualmente, tienes",porc_pos,"% de aciertos y",porc_neg,"% de errores")
+print("Te demoras aproximadamente",int(tiempo_por_pregunta),"segundos en cada respuesta")
+print("......")
+print("Para jugar de nuevo, presiona flecha ascendente ⬆︎ y")
+print("...luego presiona ENTER ↲")
+

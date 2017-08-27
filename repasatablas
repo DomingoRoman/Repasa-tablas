@@ -22,7 +22,7 @@
 #  
 #  Este programa permite repasar las tablas de multiplicar 
 #  entre el 2 y el 9.
-#  
+#
 import pdb 
 from subprocess import call
 import random
@@ -32,7 +32,6 @@ import time
 call("clear")
 
 ene_veces = random.randint(3, 5)
-
 nombre = (input("Escriba su nombre  "))
 nombre = nombre.lower()
 espera = (input("Presiona enter"))
@@ -60,15 +59,17 @@ if nombre == "pedro" or nombre == "pedro domingo":
     print("Probablemente eres tú el famoso crac de Palestino Ñuñoa!")
     espera = (input("Entre enter"))
     call("clear")
-if nombre == "luis":
+elif nombre == "luis":
     nombre = nombre.title()
     print(nombre,"el colocolino?")
-if nombre == "nerea":
+elif nombre == "nerea":
     nombre = nombre.title()	
     print("Hermoso tu nombre,",nombre)
-if nombre == "agustín" or nombre == "agus" or nombre == "agustin":
+elif nombre == "agustín" or nombre == "agus" or nombre == "agustin":
     nombre = nombre.title()
     print(nombre,"¿Eres el genio de las matemáticas?")
+elif  nombre == "martin":
+    print(nombre,"Supongo que sabes hablar alemán")
 else:
     nombre = nombre.title()
     
